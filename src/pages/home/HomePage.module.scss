@@ -9,11 +9,10 @@
   &__cards {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
     align-items: start;
     flex-wrap: wrap;
     padding: 1rem;
-    gap: 1rem;
     background-color: red;
   }
 }
