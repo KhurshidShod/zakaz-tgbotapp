@@ -31,7 +31,7 @@ const Card = ({ name, description, image, price, quantity, count, category }) =>
       </div>
       <div className={styles.card__text}>
         <h1>{name}</h1>
-        <p>{description}</p>
+        <p><i>{description}</i></p>
       </div>
       <div className={styles.card__infos}>
         <p>
