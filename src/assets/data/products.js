@@ -2,8 +2,8 @@ export const productData = [
     {
       id: 1,
       name: "Burger",
-      description: "Delicious hamburger with all the fixings.",
-      price: 5.99,
+      description: "Delicious 4 XL hamburger with all the fixings.",
+      price: '200,000',
       image: [
         "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
@@ -41,7 +41,7 @@ export const productData = [
     {
       id: 4,
       name: "Burger",
-      description: "Enjoy the perfect combination of savory and sweet with our BBQ bacon burger.",
+      description: "Enjoy the perfect combination of savory and sweet with our BBQ bacon burger. Lorem ipsum dolor sit amet",
       price: 7.99,
       image: [
         "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
