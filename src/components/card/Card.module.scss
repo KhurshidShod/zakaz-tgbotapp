@@ -25,11 +25,19 @@
     flex-direction: column;
     gap: 5px;
     h1 {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
     }
-    p{
-      font-size: 14px;
+    p {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+  &__infos {
+    display: flex;
+    justify-content: space-between;
+    p {
+      font-size: 12px;
       font-weight: 400;
     }
   }
