@@ -4,7 +4,7 @@ import { GrFormNext } from "react-icons/gr";
 import { GrFormPrevious } from "react-icons/gr";
 import { PiDotFill } from "react-icons/pi";
 
-const Card = () => {
+const Card = ({ name, description, image, quantity, count, category }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -22,29 +22,16 @@ const Card = () => {
       <div className={styles.card__image}>
         <span>0</span>
         <Slider {...settings}>
-          <div>
-            <img
-              src="http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg"
-              alt=""
-            />
-          </div>
+          {image.map(img => (
+            <div key={img}>
+              <img src={img} alt="" />
+            </div>
+          ))}
         </Slider>
       </div>
       <div className={styles.card__text}>
-        <h1>Burger</h1>
-        <p>Delicious hamburger with all the fixings.</p>
+        <h1>{name}</h1>
+        <p>{description}</p>
       </div>
       <div className={styles.card__infos}>
         <p>
@@ -62,8 +49,9 @@ const Card = () => {
           Mavjud: <b>5</b>
         </p>
       </div>
-      <div className={styles.card__infos}>
-        <button></button>
+      <div className={styles.card__bottom}>
+        <div><button>Xardi qilish</button></div>
+        <p>Mavjud: {count}</p>
       </div>
     </div>
   );

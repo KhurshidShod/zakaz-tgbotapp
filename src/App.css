@@ -27,6 +27,11 @@ button {
   width: 100%;
   position: relative;
   z-index: 1;
+  height: 193px;
+}
+.slick-slide{
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 .slick-slider .slick-arrow {
@@ -41,13 +46,13 @@ button {
 
 .slick-slider .slick-prev {
   top: 50%;
-  left: 0px;
+  left: 3px;
   z-index: 2;
 }
 
 .slick-slider .slick-next {
   top: 50%;
-  right: 0px;
+  right: 3px;
   z-index: 2;
 }
 
