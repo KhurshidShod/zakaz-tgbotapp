@@ -60,7 +60,9 @@ button {
   }
 }
 
-.slick-active {}
+.slick-active {
+  color: var(--tg-theme-text-color) !important;
+}
 
 .slick-slider div {
   width: 100%;
