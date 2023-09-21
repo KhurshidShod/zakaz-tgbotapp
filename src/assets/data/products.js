@@ -57,7 +57,7 @@ export const productData = [
       description: "Crispy and delicious, our chicken nuggets are perfect for snacking.",
       price: 3.99,
       image: [
-        "http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
+        "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
       quantity: 1,
@@ -70,7 +70,7 @@ export const productData = [
       description: "Our classic hot dog is the perfect meal on the go.",
       price: 2.99,
       image: [
-        "http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
+        "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
       quantity: 1,
@@ -83,7 +83,7 @@ export const productData = [
       description: "Get a taste of the sea with our crispy fish sandwich.",
       price: 5.99,
       image: [
-        "http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
+        "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
       quantity: 1,
@@ -96,7 +96,7 @@ export const productData = [
       description: "Get a taste of the sea with our crispy fish sandwich.",
       price: 5.99,
       image: [
-        "http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
+        "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
       quantity: 1,
@@ -109,7 +109,7 @@ export const productData = [
       description: "Get a taste of the sea with our crispy fish sandwich.",
       price: 5.99,
       image: [
-        "http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
+        "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
       quantity: 1,
