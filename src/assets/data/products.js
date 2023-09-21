@@ -5,7 +5,7 @@ export const productData = [
       description: "Delicious hamburger with all the fixings.",
       price: 5.99,
       image: [
-        "http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
+        "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
       quantity: 1,
@@ -18,7 +18,7 @@ export const productData = [
       description: "Satisfy your cravings with a crispy chicken sandwich.",
       price: 6.99,
       image: [
-        "http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
+        "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
       quantity: 1,
@@ -31,7 +31,7 @@ export const productData = [
       description: "Get your cheese fix with our classic cheeseburger.",
       price: 4.99,
       image: [
-        "http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
+        "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
       quantity: 1,
@@ -44,7 +44,7 @@ export const productData = [
       description: "Enjoy the perfect combination of savory and sweet with our BBQ bacon burger.",
       price: 7.99,
       image: [
-        "http://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
+        "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
       quantity: 1,
