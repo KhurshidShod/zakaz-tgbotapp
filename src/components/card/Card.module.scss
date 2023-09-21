@@ -16,7 +16,7 @@
       width: 100%;
       border-radius: 15px;
     }
-    span{
+    span {
       position: absolute;
       width: 15px;
       height: 15px;
@@ -24,14 +24,15 @@
       justify-content: center;
       align-items: center;
       border-radius: 50%;
-      background-color: red;
+      background-color: var(--tg-theme-bg-color);
+      color: var(--tg-theme-text-color);
       font-size: 12px;
       top: 0;
       right: 0;
+      z-index: 2;
     }
   }
   &__text {
-    color: white;
     display: flex;
     justify-content: start;
     align-items: start;
