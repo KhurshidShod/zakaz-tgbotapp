@@ -31,9 +31,8 @@ button {
 
 .slick-slider .slick-arrow {
   position: absolute;
-  background-color: var(--tg-theme-bg-color);
   border-radius: 50%;
-  color: var(--tg-theme-text-color);
+  color: white;
 }
 
 .slick-slider .slick-prev {
@@ -51,7 +50,6 @@ button {
 .slick-slider .slick-dots {
   position: absolute;
   bottom: 0;
-
   >li {
     margin: 0 !important;
     color: white !important;
