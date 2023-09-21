@@ -4,7 +4,7 @@ import { GrFormNext } from "react-icons/gr";
 import { GrFormPrevious } from "react-icons/gr";
 import { PiDotFill } from "react-icons/pi";
 
-const Card = ({ name, description, image, quantity, count, category }) => {
+const Card = ({ name, description, image, price, quantity, count, category }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -35,23 +35,14 @@ const Card = ({ name, description, image, quantity, count, category }) => {
       </div>
       <div className={styles.card__infos}>
         <p>
-          Narxi: <b>109.000</b>
+          Narxi: <b>{price}</b>
         </p>
         <p>
-          Mavjud: <b>5</b>
-        </p>
-      </div>
-      <div className={styles.card__infos}>
-        <p>
-          Narxi: <b>109.000</b>
-        </p>
-        <p>
-          Mavjud: <b>5</b>
+          Mavjud: <b>{count}</b>
         </p>
       </div>
       <div className={styles.card__bottom}>
-        <div><button>Xardi qilish</button></div>
-        <p>Mavjud: {count}</p>
+        <div><button>Savatga qo'shish</button></div>
       </div>
     </div>
   );
