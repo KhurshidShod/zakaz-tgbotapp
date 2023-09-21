@@ -11,9 +11,23 @@
     display: flex;
     justify-content: start;
     align-items: start;
+    position: relative;
     img {
       width: 100%;
       border-radius: 15px;
+    }
+    span{
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: red;
+      font-size: 12px;
+      top: 0;
+      right: 0;
     }
   }
   &__text {
@@ -30,7 +44,6 @@
     p {
       font-size: 12px;
       margin-top: 5px;
-
       font-weight: 400;
     }
   }

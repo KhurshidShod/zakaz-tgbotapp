@@ -10,7 +10,8 @@
 *::after {
   box-sizing: border-box;
 }
-body{
+
+body {
   color: var(--tg-theme-text-color);
   background-color: var(--tg-theme-bg-color);
 }
@@ -20,4 +21,49 @@ body{
 button {
   border: none;
   outline: none;
+}
+
+.slick-slider {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.slick-slider .slick-arrow {
+  position: absolute;
+  background-color: var(--tg-theme-bg-color);
+  border-radius: 50%;
+  color: var(--tg-theme-text-color);
+}
+
+.slick-slider .slick-prev {
+  top: 50%;
+  left: 0px;
+  z-index: 2;
+}
+
+.slick-slider .slick-next {
+  top: 50%;
+  right: 0px;
+  z-index: 2;
+}
+
+.slick-slider .slick-dots {
+  position: absolute;
+  bottom: 0;
+
+  >li {
+    margin: 0 !important;
+    color: white !important;
+  }
+}
+
+.slick-active {}
+
+.slick-slider div {
+  width: 100%;
+}
+
+.slick-slider div img {
+  width: 100%;
 }

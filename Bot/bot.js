@@ -5,10 +5,10 @@ const bot = new Telegraf(TOKEN);
 const web_link = "https://zakaz-tgbotapp.vercel.app/";
 
 bot.start((ctx) => {
-  ctx.reply(`${ctx.telegram}`, {
+  ctx.reply(`Assalomu aleykum`, {
     reply_markup: {
       inline_keyboard: [[{ text: "Bizning sayt", web_app: { url: web_link } }]],
-      resize_keyboard: false
+      resize_keyboard: true
     },
   }).then(r => console.log(r));
 });

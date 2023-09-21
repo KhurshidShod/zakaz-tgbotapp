@@ -1,7 +1,9 @@
+import { useState } from "react";
 import Card from "../../components/card";
 import styles from "./HomePage.module.scss";
 
 const HomePage = () => {
+  const [prods, setProds] = useState([]);
   return (
     <div className={styles.homepage}>
       <p>Updated</p>
