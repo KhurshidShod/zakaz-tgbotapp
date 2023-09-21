@@ -10,7 +10,7 @@ bot.start((ctx) => {
       inline_keyboard: [[{ text: "Bizning sayt", web_app: { url: web_link } }]],
       resize_keyboard: false
     },
-  }).then(r => console.log(ctx.chat));
+  }).then(r => console.log(r));
 });
 
 bot.launch();

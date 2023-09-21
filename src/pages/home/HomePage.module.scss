@@ -1,8 +1,9 @@
 .homepage {
   width: 100%;
   height: 100vh;
-  background-color: #282828;
+  background-color: var(--tg-theme-bg-color);
   max-width: 450px;
+  min-width: 400px;
   margin: 0 auto;
   padding: 1rem;
   overflow: auto;

@@ -3,9 +3,10 @@ import HomePage from "./pages/home";
 import "./App.css";
 import { useEffect } from "react";
 
+window.Telegram.WebApp
+
 function App() {
   const tele = window.Telegram.WebApp;
-
   useEffect(() => {
     tele.ready();
   });
