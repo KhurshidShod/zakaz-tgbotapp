@@ -32,7 +32,11 @@ button {
 .slick-slider .slick-arrow {
   position: absolute;
   border-radius: 50%;
-  color: white;
+  color: white !important;
+  background-color: rgba(255, 255, 255, .3);
+  >polyline{
+    stroke: white;
+  }
 }
 
 .slick-slider .slick-prev {

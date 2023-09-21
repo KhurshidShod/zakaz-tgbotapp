@@ -13,8 +13,8 @@ const Card = () => {
     slidesToScroll: 1,
     draggable: true,
     swipeToSlide: true,
-    nextArrow: <GrFormNext />,
-    prevArrow: <GrFormPrevious />,
+    nextArrow: <GrFormNext color="white" />,
+    prevArrow: <GrFormPrevious color="white" />,
     customPaging: () => <li>{<PiDotFill />}</li>,
   };
   return (
