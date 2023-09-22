@@ -12,8 +12,8 @@
 }
 
 body {
-  color: var(--tg-theme-text-color);
-  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color) !important;
+  background-color: var(--tg-theme-bg-color) !important;
 }
 
 button {
