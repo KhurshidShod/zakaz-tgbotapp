@@ -16,8 +16,6 @@ body {
   background-color: var(--tg-theme-bg-color);
 }
 
-.container {}
-
 button {
   border: none;
   outline: none;
@@ -37,8 +35,7 @@ button {
 .slick-slider .slick-arrow {
   position: absolute;
   border-radius: 50%;
-  color: white !important;
-  background-color: rgba(255, 255, 255, .3);
+  background-color: rgba(255, 145, 0, 0.206);
   >polyline{
     stroke: white;
   }
@@ -67,6 +64,11 @@ button {
 
 .slick-active {
   color: var(--tg-theme-text-color) !important;
+  >li{
+    >svg{
+      fill: orange !important;
+    }
+  }
 }
 
 .slick-slider div {

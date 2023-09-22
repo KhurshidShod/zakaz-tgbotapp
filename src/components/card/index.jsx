@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import { GrFormNext } from "react-icons/gr";
 import { GrFormPrevious } from "react-icons/gr";
 import { PiDotFill } from "react-icons/pi";
-// import userID from "../../../Bot/bot";
 
 const Card = ({
   name,
@@ -13,6 +12,10 @@ const Card = ({
   quantity,
   count,
   category,
+  id,
+  cart,
+  addToCart,
+  changeQuant
 }) => {
   const settings = {
     dots: true,
@@ -26,7 +29,6 @@ const Card = ({
     prevArrow: <GrFormPrevious color="white" />,
     customPaging: () => <li>{<PiDotFill />}</li>,
   };
-  // console.log(userID);
   return (
     <div className={styles.card}>
       <div className={styles.card__image}>
@@ -55,7 +57,15 @@ const Card = ({
       </div>
       <div className={styles.card__bottom}>
         <div>
-          <button>Savatga qo'shish</button>
+          {cart.find((prod) => prod.id === id) ? (
+            <div className={styles.card__bottom_plusMinus}>
+              <button onClick={() => changeQuant('minus', id)}>-</button>
+              <p>{quantity}</p>
+              <button onClick={() => changeQuant('plus', id)}>+</button>
+            </div>
+          ) : (
+            <button onClick={() => addToCart(id)}>Savatga qo'shish</button>
+          )}
         </div>
       </div>
     </div>
