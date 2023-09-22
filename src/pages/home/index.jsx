@@ -5,13 +5,13 @@ import { productData } from "../../assets/data/products";
 import Slider from "react-slick";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { PiDotFill } from "react-icons/pi";
-import { AiOutlineCloseCircle } from 'react-icons/ai'
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const HomePage = () => {
-  const localProds = localStorage.getItem("cart");
+  // const localProds = localStorage.getItem("cart");
   const [cat, setCat] = useState("all");
-  const [prods, setProds] = useState(JSON.parse(localProds) || []);
-  const [prevProd, setPrevProd] = useState(null)
+  const [prods, setProds] = useState([]);
+  const [prevProd, setPrevProd] = useState(null);
   const increment = (id) => {
     let newProds = prods.map((prod) => {
       if (prod.id === id) {
@@ -24,7 +24,6 @@ const HomePage = () => {
       return prod;
     });
     setProds(newProds);
-    localStorage.setItem("cart", JSON.stringify(newProds));
   };
   const decrement = (id) => {
     let prod = prods.find((prod) => prod.id === id);
@@ -40,7 +39,6 @@ const HomePage = () => {
       });
     }
     setProds(newProds);
-    localStorage.setItem("cart", JSON.stringify(newProds));
   };
   const addToCart = (id) => {
     const newProds = [
@@ -48,7 +46,6 @@ const HomePage = () => {
       { ...productData.find((prod) => prod.id === id), quantity: 1 },
     ];
     setProds(newProds);
-    localStorage.setItem("cart", JSON.stringify(newProds));
   };
   const settings = {
     dots: true,
@@ -63,21 +60,34 @@ const HomePage = () => {
     customPaging: () => <li>{<PiDotFill />}</li>,
   };
   const preview = (id) => {
-    setPrevProd(productData.find(prod => prod.id === id))
-  }
+    setPrevProd(productData.find((prod) => prod.id === id));
+  };
 
   const sliderRef = useRef();
   return (
     <div className={styles.homepage}>
-    <div style={{display: prods.length ? 'flex' : 'none'}} className={styles.pay__btn}>
-      <p>Buyurtma berish</p>
-    </div>
-      <div className={`${styles.homepage__prev} ${prevProd ? styles.prevOpened : null }`}>
+      <div
+        style={{ display: prods.length ? "flex" : "none" }}
+        className={styles.pay__btn}
+      >
+        <p>Buyurtma berish</p>
+      </div>
+      <div
+        className={`${styles.homepage__prev} ${
+          prevProd ? styles.prevOpened : null
+        }`}
+      >
         <div className={styles.homepage__prev_wrapper}>
-        <span onClick={() => setPrevProd(null)}><AiOutlineCloseCircle /></span>
+          <span onClick={() => setPrevProd(null)}>
+            <AiOutlineCloseCircle />
+          </span>
           <div className={styles.prev__img}>
             <Slider {...settings}>
-              {prevProd?.image.map(img => <div key={img}><img src={img} alt="" /></div>)}
+              {prevProd?.image.map((img) => (
+                <div key={img}>
+                  <img src={img} alt="" />
+                </div>
+              ))}
             </Slider>
           </div>
           <div className={styles.prev__desc}>
