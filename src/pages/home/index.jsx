@@ -46,15 +46,15 @@ const HomePage = () => {
   return (
     <div className={styles.homepage}>
       <div className={styles.homepage__cats}>
-        <span ref={sliderRef}></span>
-        <button onClick={(e) => {
-          sliderRef.current.style.right = `${window.innerWidth - 16 - e.currentTarget.getBoundingClientRect().right}px`
+        <span ref={sliderRef} style={{left: cat === 'all' ? '0' : cat === 'young' ? '125px' : '250px'}}></span>
+        <button onClick={() => {
+          setCat('all')
         }}>Barchasi</button>
-        <button onClick={(e) => {
-          sliderRef.current.style.right = `${window.innerWidth - 16 - e.currentTarget.getBoundingClientRect().right}px`
+        <button onClick={() => {
+          setCat('young')
         }}>Bolalar</button>
-        <button onClick={(e) => {
-          sliderRef.current.style.right = `${window.innerWidth - 16 - e.currentTarget.getBoundingClientRect().right}px`
+        <button onClick={() => {
+          setCat('adult')
         }}>Kattalar</button>
       </div>
       {cat === "all" ? (
