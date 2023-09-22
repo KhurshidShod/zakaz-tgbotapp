@@ -15,6 +15,9 @@ body {
   color: var(--tg-theme-text-color) !important;
   background-color: var(--tg-theme-bg-color) !important;
 }
+body.fixed{
+  overflow: hidden;
+}
 html{
   margin: 0 auto;
   position: relative;

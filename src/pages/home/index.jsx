@@ -15,10 +15,11 @@ const HomePage = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     request.get("addviewproduct/").then((res) => {
-      setProducts(res.data)
+      setProducts(res.data);
     });
   }, []);
   const [prevProd, setPrevProd] = useState(null);
+  const [orderOpen, setOrderOpen] = useState(false);
   const increment = (id) => {
     let newProds = prods.map((prod) => {
       if (prod.id === id) {
@@ -68,12 +69,17 @@ const HomePage = () => {
   };
   const preview = (id) => {
     setPrevProd(productData.find((prod) => prod.id === id));
+    document.body.classList.add("fixed");
   };
 
   const sliderRef = useRef();
   return (
     <div className={styles.homepage}>
       <div
+        onClick={() => {
+          setOrderOpen(true);
+          document.body.classList.add("fixed");
+        }}
         style={{ display: prods.length ? "flex" : "none" }}
         className={styles.pay__btn}
       >
@@ -85,7 +91,12 @@ const HomePage = () => {
         }`}
       >
         <div className={styles.homepage__prev_wrapper}>
-          <span onClick={() => setPrevProd(null)}>
+          <span
+            onClick={() => {
+              setPrevProd(null);
+              document.body.classList.remove("fixed");
+            }}
+          >
             <AiOutlineCloseCircle />
           </span>
           <div className={styles.prev__img}>
@@ -133,17 +144,23 @@ const HomePage = () => {
       </div>
       {cat === "all" ? (
         <div className={styles.homepage__cards}>
-          {products.length ? products.map((prod) => (
-            <Card
-              increment={increment}
-              decrement={decrement}
-              key={prod.id}
-              cart={prods}
-              preview={preview}
-              addToCart={addToCart}
-              {...prod}
-            />
-          )) : <div><p>Afsuski, mahsulotlar mavjud emas</p></div>}
+          {products.length ? (
+            products.map((prod) => (
+              <Card
+                increment={increment}
+                decrement={decrement}
+                key={prod.id}
+                cart={prods}
+                preview={preview}
+                addToCart={addToCart}
+                {...prod}
+              />
+            ))
+          ) : (
+            <div>
+              <p>Afsuski, mahsulotlar mavjud emas</p>
+            </div>
+          )}
         </div>
       ) : cat === "young" ? (
         <div className={styles.homepage__cards}>
@@ -188,7 +205,10 @@ const HomePage = () => {
           )}
         </div>
       )}
-      <OrderTab />
+      <OrderTab orderOpen={orderOpen} cart={prods} closeOrder={() => {
+        setOrderOpen(false)
+        document.body.classList.remove('fixed')
+      }} />
     </div>
   );
 };
