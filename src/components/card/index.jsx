@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { GrFormNext } from "react-icons/gr";
 import { GrFormPrevious } from "react-icons/gr";
 import { PiDotFill } from "react-icons/pi";
+import PropTypes from 'prop-types'
 
 const Card = ({
   name,
@@ -77,5 +78,21 @@ const Card = ({
     </div>
   );
 };
+
+Card.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.array,
+  price: PropTypes.number,
+  quantity: PropTypes.number,
+  count: PropTypes.number,
+  category: PropTypes.string,
+  id: PropTypes.number,
+  cart: PropTypes.array,
+  addToCart: PropTypes.func,
+  increment: PropTypes.func,
+  decrement: PropTypes.func,
+  preview: PropTypes.func
+}
 
 export default Card;

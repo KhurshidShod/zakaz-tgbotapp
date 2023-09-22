@@ -3,19 +3,18 @@ import HomePage from "./pages/home";
 import "./App.css";
 import { useEffect } from "react";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 window.Telegram.WebApp;
 
 function App() {
   const tele = window.Telegram.WebApp;
-  console.log(window)
+  console.log(window);
   useEffect(() => {
     tele.ready();
+    tele.enableClosingConfirmation();
   });
-  return(
-    <HomePage />  
-  );
+  return <HomePage />;
 }
 
 export default App;
