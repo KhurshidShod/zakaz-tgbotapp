@@ -88,13 +88,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 1.5rem;
+      gap: .5rem;
       p{
         font-size: 18px;
         font-weight: 600;
         margin: 0;
+        flex-grow: 1;
+        text-align: center;
       }
       button{
+        width: 75px;
         &:nth-child(1){
           background-color: rgb(229, 0, 0);
         }
