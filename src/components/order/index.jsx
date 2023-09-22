@@ -32,7 +32,7 @@ const OrderTab = ({ orderOpen, closeOrder, cart }) => {
                 <p>{prod.about}</p>
               </div>
             </div>
-            <h4>{checkPrice(1233000)}</h4>
+            <h4>{checkPrice(prod.price)}</h4>
           </div>)}
           <hr />
         </div>
