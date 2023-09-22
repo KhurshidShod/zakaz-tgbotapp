@@ -10,15 +10,15 @@
     justify-content: space-between;
     gap: 0;
     position: relative;
-    background-color: orange;
-    color: black;
+    background-color: var(--tg-theme-text-color);
+    color: var(--tg-theme-bg-color);
     border-radius: 5px;
     padding: 5px;
     span {
       width: 120px;
       height: 40px;
       border-radius: 5px;
-      background-color: white;
+      background-color: orange;
       position: absolute;
       pointer-events: none;
       left: 5px;
