@@ -8,7 +8,7 @@ export const productData = [
         "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
-      quantity: 1,
+      quantity: 0,
       category: "young kids",
       count:12
     },
@@ -21,7 +21,7 @@ export const productData = [
         "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
-      quantity: 1,
+      quantity: 0,
       category: "adults",
       count: 14
     },
@@ -34,7 +34,7 @@ export const productData = [
         "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
-      quantity: 1,
+      quantity: 0,
       category: "adults",
       count: 23
     },
@@ -47,7 +47,7 @@ export const productData = [
         "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
-      quantity: 1,
+      quantity: 0,
       category: "young kids",
       count: 2
     },
@@ -60,7 +60,7 @@ export const productData = [
         "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
-      quantity: 1,
+      quantity: 0,
       category: "adults",
       count: 50
     },
@@ -73,7 +73,7 @@ export const productData = [
         "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
-      quantity: 1,
+      quantity: 0,
       category: "young kids",
       count: 2
     },
@@ -86,7 +86,7 @@ export const productData = [
         "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
-      quantity: 1,
+      quantity: 0,
       category: "young kids",
       count: 2
     },
@@ -99,7 +99,7 @@ export const productData = [
         "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
-      quantity: 1,
+      quantity: 0,
       category: "young kids",
       count: 2
     },
@@ -112,7 +112,7 @@ export const productData = [
         "https://telegra.ph//file/8cc0d9a58c68c695b2076.jpg",
         "https://picsum.photos/200/300"
       ],
-      quantity: 1,
+      quantity: 0,
       category: "adults",
       count: 10
     },

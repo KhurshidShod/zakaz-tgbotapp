@@ -95,6 +95,9 @@
         }
         &:nth-child(3){
           background-color: rgb(0, 183, 0);
+          &:disabled{
+          background-color: rgba(0, 183, 0, 0.698);
+          }
         }
       }
     }
