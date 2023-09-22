@@ -1,0 +1,101 @@
+.loading {
+  width: calc(100% / 2 - 0.5rem);
+  min-width: 150px;
+  height: 350px;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.4rem;
+  &__img {
+    width: 100%;
+    background-color: rgb(150, 150, 150);
+    height: 193px;
+    border-radius: 15px;
+    animation-name: pulse;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+  }
+  &__title {
+    width: 70%;
+    height: 30px;
+    background-color: rgb(150, 150, 150);
+    border-radius: 5px;
+    animation-name: pulse;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+  }
+  &__desc {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(150, 150, 150);
+    animation-name: pulse;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+  }
+  &__info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &_left {
+      width: 100px;
+      border-radius: 5px;
+      height: 20px;
+      background-color: rgb(150, 150, 150);
+      animation-name: pulse;
+      animation-duration: 2.5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-fill-mode: backwards;
+    }
+    &_right {
+      width: 100px;
+      border-radius: 5px;
+      height: 20px;
+      background-color: rgb(150, 150, 150);
+      animation-name: pulse;
+      animation-duration: 2.5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-fill-mode: backwards;
+    }
+  }
+  &__buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &_button{
+        width: 100%;
+        height: 38px;
+        background-color: rgb(150, 150, 150);
+        animation-name: pulse;
+        animation-duration: 2.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-fill-mode: backwards;
+        border-radius: 5px;
+    }
+  }
+}
+
+@keyframes pulse {
+    0%{
+        opacity: 1
+    } 50% {
+        opacity: .5
+    } 100%{
+        opacity: 1
+    }
+}

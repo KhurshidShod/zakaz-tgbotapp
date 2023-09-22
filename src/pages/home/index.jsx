@@ -8,16 +8,26 @@ import { PiDotFill } from "react-icons/pi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import request from "../../helpers/request";
 import OrderTab from "../../components/order";
+import Loader from "../../components/loader";
+import CardLoading from "../../components/cardloading";
 
 const HomePage = () => {
   const [cat, setCat] = useState("all");
   const [prods, setProds] = useState([]);
+  const [loading, setLoading] = useState(false)
+  const [windowLoading, setWindowLoading] = useState(true)
   const [products, setProducts] = useState([]);
   useEffect(() => {
+    setLoading(true)
     request.get("addviewproduct/").then((res) => {
       setProducts(res.data);
-    });
+    }).catch(err => console.log(err)).finally((_) => setLoading(false));
   }, []);
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      setWindowLoading(false)
+    })
+  }, [])
   const [prevProd, setPrevProd] = useState(null);
   const [orderOpen, setOrderOpen] = useState(false);
   const increment = (id) => {
@@ -74,6 +84,7 @@ const HomePage = () => {
 
   const sliderRef = useRef();
   return (
+    windowLoading ? <Loader /> :
     <div className={styles.homepage}>
       <div
         onClick={() => {
@@ -144,7 +155,7 @@ const HomePage = () => {
       </div>
       {cat === "all" ? (
         <div className={styles.homepage__cards}>
-          {products.length ? (
+          {loading ? Array(4).fill(0).map(() => <CardLoading />) : products.length ? (
             products.map((prod) => (
               <Card
                 increment={increment}
@@ -164,7 +175,7 @@ const HomePage = () => {
         </div>
       ) : cat === "young" ? (
         <div className={styles.homepage__cards}>
-          {products.filter((prod) => prod.type === "young kids").length ? (
+          {loading ? Array(4).fill(0).map(() => <CardLoading />) : products.filter((prod) => prod.type === "young kids").length ? (
             products
               .filter((prod) => prod.type === "young kids")
               .map((prod) => (
@@ -185,7 +196,7 @@ const HomePage = () => {
         </div>
       ) : (
         <div className={styles.homepage__cards}>
-          {products.filter((prod) => prod.type === "adults").length ? (
+          {loading ? Array(4).fill(0).map(() => <CardLoading />) : products.filter((prod) => prod.type === "adults").length ? (
             products
               .filter((prod) => prod.type === "adults")
               .map((prod) => (
