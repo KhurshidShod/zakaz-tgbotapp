@@ -69,7 +69,7 @@ const HomePage = () => {
   const sliderRef = useRef();
   return (
     <div className={styles.homepage}>
-    <div className={styles.pay__btn}>
+    <div style={{display: prods.length ? 'flex' : 'none'}} className={styles.pay__btn}>
       <p>Buyurtma berish</p>
     </div>
       <div className={`${styles.homepage__prev} ${prevProd ? styles.prevOpened : null }`}>
