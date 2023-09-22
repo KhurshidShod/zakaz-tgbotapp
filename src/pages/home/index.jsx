@@ -69,6 +69,9 @@ const HomePage = () => {
   const sliderRef = useRef();
   return (
     <div className={styles.homepage}>
+    <div className={styles.pay__btn}>
+      <p>Buyurtma berish</p>
+    </div>
       <div className={`${styles.homepage__prev} ${prevProd ? styles.prevOpened : null }`}>
         <div className={styles.homepage__prev_wrapper}>
         <span onClick={() => setPrevProd(null)}><AiOutlineCloseCircle /></span>
