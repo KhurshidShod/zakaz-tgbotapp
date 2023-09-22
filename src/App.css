@@ -16,7 +16,8 @@ body {
   background-color: var(--tg-theme-bg-color) !important;
 }
 html{
-  width: 400px;
+  max-width: 450px;
+  min-width: 250px;
   margin: 0 auto;
 }
 
