@@ -86,7 +86,7 @@ const HomePage = () => {
         <span
           ref={sliderRef}
           style={{
-            left: cat === "all" ? "5px" : cat === "young" ? "125px" : "240px",
+            left: cat === "all" ? "5px" : cat === "young" ? "100px" : "195px",
           }}
         ></span>
         <button
