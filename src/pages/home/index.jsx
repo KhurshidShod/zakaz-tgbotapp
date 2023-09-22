@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Card from "../../components/card";
 import styles from "./HomePage.module.scss";
 import { productData } from "../../assets/data/products";
@@ -6,11 +6,18 @@ import Slider from "react-slick";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { PiDotFill } from "react-icons/pi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import request from "../../helpers/request";
+import OrderTab from "../../components/order";
 
 const HomePage = () => {
-  // const localProds = localStorage.getItem("cart");
   const [cat, setCat] = useState("all");
   const [prods, setProds] = useState([]);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    request.get("addviewproduct/").then((res) => {
+      setProducts(res.data)
+    });
+  }, []);
   const [prevProd, setPrevProd] = useState(null);
   const increment = (id) => {
     let newProds = prods.map((prod) => {
@@ -43,7 +50,7 @@ const HomePage = () => {
   const addToCart = (id) => {
     const newProds = [
       ...prods,
-      { ...productData.find((prod) => prod.id === id), quantity: 1 },
+      { ...products.find((prod) => prod.id === id), quantity: 1 },
     ];
     setProds(newProds);
   };
@@ -126,7 +133,7 @@ const HomePage = () => {
       </div>
       {cat === "all" ? (
         <div className={styles.homepage__cards}>
-          {productData.map((prod) => (
+          {products.length ? products.map((prod) => (
             <Card
               increment={increment}
               decrement={decrement}
@@ -136,39 +143,52 @@ const HomePage = () => {
               addToCart={addToCart}
               {...prod}
             />
-          ))}
+          )) : <div><p>Afsuski, mahsulotlar mavjud emas</p></div>}
         </div>
       ) : cat === "young" ? (
         <div className={styles.homepage__cards}>
-          {productData
-            .filter((prod) => prod.category === "young kids")
-            .map((prod) => (
-              <Card
-                key={prod.id}
-                cart={prods}
-                increment={increment}
-                decrement={decrement}
-                addToCart={addToCart}
-                {...prod}
-              />
-            ))}
+          {products.filter((prod) => prod.type === "young kids").length ? (
+            products
+              .filter((prod) => prod.type === "young kids")
+              .map((prod) => (
+                <Card
+                  key={prod.id}
+                  cart={prods}
+                  increment={increment}
+                  decrement={decrement}
+                  addToCart={addToCart}
+                  {...prod}
+                />
+              ))
+          ) : (
+            <div>
+              <p>Afsuski, bu kategoriyada mahsulotlar mavjud emas</p>
+            </div>
+          )}
         </div>
       ) : (
         <div className={styles.homepage__cards}>
-          {productData
-            .filter((prod) => prod.category === "adults")
-            .map((prod) => (
-              <Card
-                key={prod.id}
-                cart={prods}
-                increment={increment}
-                decrement={decrement}
-                addToCart={addToCart}
-                {...prod}
-              />
-            ))}
+          {products.filter((prod) => prod.type === "adults").length ? (
+            products
+              .filter((prod) => prod.type === "adults")
+              .map((prod) => (
+                <Card
+                  key={prod.id}
+                  cart={prods}
+                  increment={increment}
+                  decrement={decrement}
+                  addToCart={addToCart}
+                  {...prod}
+                />
+              ))
+          ) : (
+            <div>
+              <p>Afsuski, bu kategoriyada mahsulotlar mavjud emas</p>
+            </div>
+          )}
         </div>
       )}
+      <OrderTab />
     </div>
   );
 };

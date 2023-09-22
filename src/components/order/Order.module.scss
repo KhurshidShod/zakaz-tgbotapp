@@ -1,0 +1,118 @@
+.order {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+  align-items: end;
+  &__wrapper {
+    width: 100%;
+    height: 85%;
+    padding: 1rem;
+    padding-top: 2rem;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background-color: black;
+    color: white;
+    overflow: auto;
+    &_top{
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        gap: 5px;
+        h3{
+            font-size: 20px;
+        }
+        hr{
+            width: 100%;
+            height: 1px;
+            margin: 0;
+        }
+    }
+    &_orders{
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        flex-direction: column;
+        margin-top: 1rem;
+        gap: 0.5rem;
+        &_order{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            div{
+                display: flex;
+                gap: 5px;
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 2px;
+                }
+                div{
+                    display: flex;
+                    justify-content: center;
+                    align-items: start;
+                    flex-direction: column;
+                    gap: 0;
+                    h5, p{
+                        margin: 0;
+                    }
+                    h5{
+                        font-size: 16px;
+                        font-weight: 600;
+                        span{
+                            color: orange;
+                        }
+                    }
+                    p{
+                        font-size: 12px;
+                        font-weight: 400;
+                        opacity: .75;
+                        max-width: 150px;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 1;
+                        overflow: hidden;
+                    }
+                }
+            }
+            h4{
+                font-size: 16px;
+                line-height: 50px;
+                color: orange;
+                max-width: 100px;
+            }
+        }
+        hr{
+            width: 100%;
+            height: 1px;
+            margin: 0;
+            margin-top: 5px;
+        }
+    }
+    &_comment{
+        width: 100%;
+        margin-top: 1rem;
+        input{
+            width: 100%;
+            height: 35px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            padding-left: 0.5rem;
+            color: var(--tg-theme-text-color);
+            border-bottom: 1px solid var(--tg-theme-text-color);
+            &::placeholder{
+                color: var(--tg-theme-text-color);
+            }
+        }
+    }
+  }
+}

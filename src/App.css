@@ -16,9 +16,8 @@ body {
   background-color: var(--tg-theme-bg-color) !important;
 }
 html{
-  max-width: 450px;
-  min-width: 250px;
   margin: 0 auto;
+  position: relative;
 }
 
 button {

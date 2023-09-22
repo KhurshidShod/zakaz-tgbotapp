@@ -7,12 +7,12 @@ import PropTypes from 'prop-types'
 
 const Card = ({
   name,
-  description,
-  image,
+  about,
+  photos,
   price,
   quantity,
   count,
-  category,
+  type,
   id,
   cart,
   addToCart,
@@ -41,7 +41,7 @@ const Card = ({
             : quantity}
         </span>
         <Slider {...settings}>
-          {image.map((img) => (
+          {photos.split('|').filter(prod => prod !== 'None').map((img) => (
             <div onClick={() => preview(id)} key={img}>
               <img src={img} alt="" />
             </div>
@@ -51,7 +51,7 @@ const Card = ({
       <div onClick={() => preview(id)} className={styles.card__text}>
         <h1>{name}</h1>
         <p>
-          <i>{description}</i>
+          <i>{about}</i>
         </p>
       </div>
       <div onClick={() => preview(id)} className={styles.card__infos}>
@@ -81,12 +81,12 @@ const Card = ({
 
 Card.propTypes = {
   name: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.array,
+  about: PropTypes.string,
+  photos: PropTypes.string,
   price: PropTypes.number,
   quantity: PropTypes.number,
   count: PropTypes.number,
-  category: PropTypes.string,
+  type: PropTypes.string,
   id: PropTypes.number,
   cart: PropTypes.array,
   addToCart: PropTypes.func,
