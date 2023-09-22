@@ -1,21 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import Card from "../../components/card";
 import styles from "./HomePage.module.scss";
-import { productData } from "../../assets/data/products";
 import Slider from "react-slick";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { PiDotFill } from "react-icons/pi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import request from "../../helpers/request";
 import OrderTab from "../../components/order";
-import Loader from "../../components/loader";
 import CardLoading from "../../components/cardloading";
 
 const HomePage = () => {
   const [cat, setCat] = useState("all");
   const [prods, setProds] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [windowLoading, setWindowLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [prevProd, setPrevProd] = useState(null);
   const [orderOpen, setOrderOpen] = useState(false);
@@ -30,11 +27,6 @@ const HomePage = () => {
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, []);
-  useEffect(() => {
-    window.addEventListener("load", () => {
-      setWindowLoading(false);
-    });
-}, []);
   const increment = (id) => {
     let newProds = prods.map((prod) => {
       if (prod.id === id) {
@@ -88,9 +80,7 @@ const HomePage = () => {
   };
 
   const sliderRef = useRef();
-  return windowLoading ? (
-    <Loader />
-  ) : (
+  return (
     <div className={styles.homepage}>
       <div
         onClick={() => {
@@ -118,7 +108,10 @@ const HomePage = () => {
           </span>
           <div className={styles.prev__img}>
             <Slider {...settings}>
-              {prevProd?.photos.toString().split("|").filter((img) => img !== "None")
+              {prevProd?.photos
+                .toString()
+                .split("|")
+                .filter((img) => img !== "None")
                 .map((img) => (
                   <div key={img}>
                     <img src={img} alt="" />
