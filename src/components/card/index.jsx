@@ -49,7 +49,7 @@ const Card = ({
       </div>
       <div className={styles.card__infos}>
         <p>
-          Narxi: <b>{price} so'm</b>
+          Narxi: <b>{price}</b>
         </p>
         <p>
           Mavjud: <b>{count}</b>
