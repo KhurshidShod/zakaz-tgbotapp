@@ -4,6 +4,56 @@
   width: 400px;
   margin: 0 auto;
   padding: 1rem;
+  &__prev {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: brightness(50%) blur(2px);
+    z-index: 9;
+    background-color: transparent;
+    &.prevOpened {
+      display: flex;
+    }
+    &_wrapper {
+      width: calc(400px - 2rem);
+      background-color: var(--tg-theme-bg-color);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      gap: 1rem;
+      span{
+        position: absolute;
+        top: -35px;
+        right: 0px;
+        z-index: 9;
+        color: orange;
+        font-size: 24px;
+        cursor: pointer;
+      }
+      .prev__img {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 10px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .prev__desc {
+        padding-left: 1rem;
+      }
+    }
+  }
   &__cats {
     width: 100%;
     display: flex;

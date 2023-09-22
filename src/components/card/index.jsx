@@ -17,6 +17,7 @@ const Card = ({
   addToCart,
   increment,
   decrement,
+  preview
 }) => {
   const settings = {
     dots: true,
@@ -40,19 +41,19 @@ const Card = ({
         </span>
         <Slider {...settings}>
           {image.map((img) => (
-            <div key={img}>
+            <div onClick={() => preview(id)} key={img}>
               <img src={img} alt="" />
             </div>
           ))}
         </Slider>
       </div>
-      <div className={styles.card__text}>
+      <div onClick={() => preview(id)} className={styles.card__text}>
         <h1>{name}</h1>
         <p>
           <i>{description}</i>
         </p>
       </div>
-      <div className={styles.card__infos}>
+      <div onClick={() => preview(id)} className={styles.card__infos}>
         <p>
           Narxi: <b>{price}</b>
         </p>
