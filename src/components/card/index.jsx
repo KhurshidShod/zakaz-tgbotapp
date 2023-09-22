@@ -15,7 +15,8 @@ const Card = ({
   id,
   cart,
   addToCart,
-  changeQuant,
+  increment,
+  decrement,
 }) => {
   const settings = {
     dots: true,
@@ -32,7 +33,11 @@ const Card = ({
   return (
     <div className={styles.card}>
       <div className={styles.card__image}>
-        <span>{cart.find(prod => prod.id === id) ? cart.find(prod => prod.id === id).quantity : quantity}</span>
+        <span>
+          {cart.find((prod) => prod.id === id)
+            ? cart.find((prod) => prod.id === id).quantity
+            : quantity}
+        </span>
         <Slider {...settings}>
           {image.map((img) => (
             <div key={img}>
@@ -59,13 +64,9 @@ const Card = ({
         <div>
           {cart.find((prod) => prod.id === id) ? (
             <div className={styles.card__bottom_plusMinus}>
-              <button onClick={() => changeQuant("minus", id)}>-</button>
+              <button onClick={() => decrement(id)}>-</button>
               <p>{cart.find((prod) => prod.id === id).quantity}</p>
-              <button
-                onClick={() => changeQuant("plus", id)}
-              >
-                +
-              </button>
+              <button onClick={() => increment(id)}>+</button>
             </div>
           ) : (
             <button onClick={() => addToCart(id)}>Savatga qo'shish</button>
