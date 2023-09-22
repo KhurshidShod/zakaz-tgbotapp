@@ -5,6 +5,35 @@
   min-width: 300px;
   margin: 0 auto;
   padding: 1rem;
+  &__cats {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    mix-blend-mode: multiply;
+    position: relative;
+    background-color: var(--tg-theme-text-color) !important;
+    color: var(--tg-theme-bg-color) !important;
+    border-radius: 10px;
+    span {
+      width: 100px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: orange;
+      position: absolute;
+      pointer-events: none;
+      right: 235px;
+      transition: 0.2s ease-in-out;
+    }
+    button {
+      width: 100px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: transparent;
+      z-index: 2;
+      color: white;
+    }
+  }
   &__cards {
     display: flex;
     width: 100%;

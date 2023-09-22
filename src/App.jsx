@@ -3,6 +3,8 @@ import HomePage from "./pages/home";
 import "./App.css";
 import { useEffect } from "react";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 window.Telegram.WebApp;
 
 function App() {
