@@ -17,10 +17,10 @@
     height: 85%;
     padding: 1rem;
     padding-top: 2rem;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    background-color: black;
-    color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
     overflow: auto;
     &::-webkit-scrollbar {
       display: none;
