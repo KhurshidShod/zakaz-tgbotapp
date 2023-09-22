@@ -43,7 +43,7 @@ const Card = ({
         <Slider {...settings}>
           {photos.split('|').filter(prod => prod !== 'None').map((img) => (
             <div onClick={() => preview(id)} key={img}>
-              <img src={img} alt="" />
+              <img src={img.replace('http', 'https')} alt="" />
             </div>
           ))}
         </Slider>
