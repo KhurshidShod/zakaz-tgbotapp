@@ -12,14 +12,14 @@
     gap: 1rem;
     mix-blend-mode: multiply;
     position: relative;
-    background-color: var(--tg-theme-text-color) !important;
-    color: var(--tg-theme-bg-color) !important;
+    background-color: orange;
+    color: black;
     border-radius: 10px;
     span {
       width: 100px;
       height: 40px;
       border-radius: 10px;
-      background-color: orange;
+      background-color: white;
       position: absolute;
       pointer-events: none;
       right: 235px;
