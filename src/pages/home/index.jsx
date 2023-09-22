@@ -46,7 +46,7 @@ const HomePage = () => {
   return (
     <div className={styles.homepage}>
       <div className={styles.homepage__cats}>
-        <span ref={sliderRef} style={{left: cat === 'all' ? '0' : cat === 'young' ? '125px' : '250px'}}></span>
+        <span ref={sliderRef} style={{left: cat === 'all' ? '5px' : cat === 'young' ? '125px' : '240px'}}></span>
         <button onClick={() => {
           setCat('all')
         }}>Barchasi</button>
@@ -59,7 +59,6 @@ const HomePage = () => {
       </div>
       {cat === "all" ? (
         <div className={styles.homepage__cards}>
-          <h1>All</h1>
           {productData.map((prod) => (
             <Card
               key={prod.id}
@@ -72,7 +71,6 @@ const HomePage = () => {
         </div>
       ) : cat === "young" ? (
         <div className={styles.homepage__cards}>
-          <h1>Young</h1>
           {productData
             .filter((prod) => prod.category === "young kids")
             .map((prod) => (
@@ -87,7 +85,6 @@ const HomePage = () => {
         </div>
       ) : (
         <div className={styles.homepage__cards}>
-          <h1>Adult</h1>
           {productData
             .filter((prod) => prod.category === "adults")
             .map((prod) => (

@@ -13,6 +13,7 @@
     background-color: orange;
     color: black;
     border-radius: 5px;
+    padding: 5px;
     span {
       width: 120px;
       height: 40px;
@@ -20,7 +21,7 @@
       background-color: white;
       position: absolute;
       pointer-events: none;
-      left: 0;
+      left: 5px;
       transition: 0.2s ease-in-out;
     }
     button {
