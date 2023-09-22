@@ -14,22 +14,27 @@ import CardLoading from "../../components/cardloading";
 const HomePage = () => {
   const [cat, setCat] = useState("all");
   const [prods, setProds] = useState([]);
-  const [loading, setLoading] = useState(false)
-  const [windowLoading, setWindowLoading] = useState(true)
+  const [loading, setLoading] = useState(false);
+  const [windowLoading, setWindowLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [prevProd, setPrevProd] = useState(null);
+  const [orderOpen, setOrderOpen] = useState(false);
+
   useEffect(() => {
-    setLoading(true)
-    request.get("addviewproduct/").then((res) => {
-      setProducts(res.data);
-    }).catch(err => console.log(err)).finally((_) => setLoading(false));
+    setLoading(true);
+    request
+      .get("addviewproduct/")
+      .then((res) => {
+        setProducts(res.data);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }, []);
   useEffect(() => {
     window.addEventListener("load", () => {
-      setWindowLoading(false)
-    })
-  }, [])
-  const [prevProd, setPrevProd] = useState(null);
-  const [orderOpen, setOrderOpen] = useState(false);
+      setWindowLoading(false);
+    });
+}, []);
   const increment = (id) => {
     let newProds = prods.map((prod) => {
       if (prod.id === id) {
@@ -78,13 +83,14 @@ const HomePage = () => {
     customPaging: () => <li>{<PiDotFill />}</li>,
   };
   const preview = (id) => {
-    setPrevProd(productData.find((prod) => prod.id === id));
+    setPrevProd(products.find((prod) => prod.id === id));
     document.body.classList.add("fixed");
   };
 
   const sliderRef = useRef();
-  return (
-    windowLoading ? <Loader /> :
+  return windowLoading ? (
+    <Loader />
+  ) : (
     <div className={styles.homepage}>
       <div
         onClick={() => {
@@ -112,15 +118,16 @@ const HomePage = () => {
           </span>
           <div className={styles.prev__img}>
             <Slider {...settings}>
-              {prevProd?.image.map((img) => (
-                <div key={img}>
-                  <img src={img} alt="" />
-                </div>
-              ))}
+              {prevProd?.photos.toString().split("|").filter((img) => img !== "None")
+                .map((img) => (
+                  <div key={img}>
+                    <img src={img} alt="" />
+                  </div>
+                ))}
             </Slider>
           </div>
           <div className={styles.prev__desc}>
-            <p>{prevProd?.description}</p>
+            <p>{prevProd?.about}</p>
           </div>
         </div>
       </div>
@@ -155,7 +162,11 @@ const HomePage = () => {
       </div>
       {cat === "all" ? (
         <div className={styles.homepage__cards}>
-          {loading ? Array(4).fill(0).map(() => <CardLoading />) : products.length ? (
+          {loading ? (
+            Array(4)
+              .fill(0)
+              .map(() => <CardLoading />)
+          ) : products.length ? (
             products.map((prod) => (
               <Card
                 increment={increment}
@@ -175,7 +186,11 @@ const HomePage = () => {
         </div>
       ) : cat === "young" ? (
         <div className={styles.homepage__cards}>
-          {loading ? Array(4).fill(0).map(() => <CardLoading />) : products.filter((prod) => prod.type === "young kids").length ? (
+          {loading ? (
+            Array(4)
+              .fill(0)
+              .map(() => <CardLoading />)
+          ) : products.filter((prod) => prod.type === "young kids").length ? (
             products
               .filter((prod) => prod.type === "young kids")
               .map((prod) => (
@@ -196,7 +211,11 @@ const HomePage = () => {
         </div>
       ) : (
         <div className={styles.homepage__cards}>
-          {loading ? Array(4).fill(0).map(() => <CardLoading />) : products.filter((prod) => prod.type === "adults").length ? (
+          {loading ? (
+            Array(4)
+              .fill(0)
+              .map(() => <CardLoading />)
+          ) : products.filter((prod) => prod.type === "adults").length ? (
             products
               .filter((prod) => prod.type === "adults")
               .map((prod) => (
@@ -216,10 +235,14 @@ const HomePage = () => {
           )}
         </div>
       )}
-      <OrderTab orderOpen={orderOpen} cart={prods} closeOrder={() => {
-        setOrderOpen(false)
-        document.body.classList.remove('fixed')
-      }} />
+      <OrderTab
+        orderOpen={orderOpen}
+        cart={prods}
+        closeOrder={() => {
+          setOrderOpen(false);
+          document.body.classList.remove("fixed");
+        }}
+      />
     </div>
   );
 };
