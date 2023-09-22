@@ -23,7 +23,7 @@ const HomePage = () => {
           } else {
             newProds = prods.map((prod) => {
               if (prod.id === id) {
-                prod.quantity--;
+                prod.quantity-=1;
               }
               return prod;
             });
