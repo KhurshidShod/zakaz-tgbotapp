@@ -114,7 +114,7 @@ const HomePage = () => {
                 .filter((img) => img !== "None")
                 .map((img) => (
                   <div key={img}>
-                    <img src={img} alt="" />
+                    <img src={img.replace('http', 'https')} alt="" />
                   </div>
                 ))}
             </Slider>
