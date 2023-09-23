@@ -12,11 +12,7 @@ function App() {
     tele.ready();
     tele.enableClosingConfirmation();
   });
-  return (
-    <Fragment>
-      <HomePage />
-    </Fragment>
-  );
+  return <HomePage />;
 }
 
 export default App;
