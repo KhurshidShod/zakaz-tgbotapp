@@ -2,7 +2,6 @@ import { useState } from "react";
 import request from "../../helpers/request";
 import styles from "./Order.module.scss";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { toast } from "react-toastify";
 
 const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
   const [comment, setComment] = useState("");
