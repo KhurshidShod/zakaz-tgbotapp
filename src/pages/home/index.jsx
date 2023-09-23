@@ -8,6 +8,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import request from "../../helpers/request";
 import OrderTab from "../../components/order";
 import CardLoading from "../../components/cardloading";
+import Ordered from "../../components/ordered";
 
 const HomePage = () => {
   const [cat, setCat] = useState("all");
@@ -16,6 +17,7 @@ const HomePage = () => {
   const [products, setProducts] = useState([]);
   const [prevProd, setPrevProd] = useState(null);
   const [orderOpen, setOrderOpen] = useState(false);
+  const [orderedOpen, setOrderedOpen] = useState(false)
 
   const sliderRef = useRef();
 
@@ -82,11 +84,20 @@ const HomePage = () => {
     document.body.classList.add("fixed");
   };
   const clearCart = () => {
-    setProds([])
+    setProds([]);
+  };
+  const openOrdered = () => {
+    setOrderedOpen(true)
+    document.body.classList.add("fixed");
+    setTimeout(() => {
+      setOrderedOpen(false)
+      document.body.classList.remove("fixed");
+    }, 3500);
   }
 
   return (
     <div className={styles.homepage}>
+      <Ordered open={orderedOpen} />
       <div
         onClick={() => {
           setOrderOpen(true);
@@ -119,7 +130,7 @@ const HomePage = () => {
                 .filter((img) => img !== "None")
                 .map((img) => (
                   <div key={img}>
-                    <img src={img.replace('http', 'https')} alt="" />
+                    <img src={img.replace("http", "https")} alt="" />
                   </div>
                 ))}
             </Slider>
@@ -195,6 +206,7 @@ const HomePage = () => {
                 <Card
                   key={prod.id}
                   cart={prods}
+                  preview={preview}
                   increment={increment}
                   decrement={decrement}
                   addToCart={addToCart}
@@ -220,6 +232,7 @@ const HomePage = () => {
                 <Card
                   key={prod.id}
                   cart={prods}
+                  preview={preview}
                   increment={increment}
                   decrement={decrement}
                   addToCart={addToCart}
@@ -236,6 +249,7 @@ const HomePage = () => {
       <OrderTab
         orderOpen={orderOpen}
         cart={prods}
+        openOrdered={openOrdered}
         clearCart={clearCart}
         closeOrder={() => {
           setOrderOpen(false);
