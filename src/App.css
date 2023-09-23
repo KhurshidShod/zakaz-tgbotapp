@@ -16,7 +16,7 @@ body {
   background-color: var(--tg-theme-bg-color) !important;
 }
 body.fixed{
-  overflow: hidden !important;
+  overflow: hidden;
 }
 html{
   margin: 0 auto;
