@@ -82,8 +82,8 @@ const HomePage = () => {
     document.body.classList.add("fixed");
   };
   const clearCart = () => {
-    setProds([]);
-  };
+    setProds([])
+  }
 
   return (
     <div className={styles.homepage}>
@@ -119,7 +119,7 @@ const HomePage = () => {
                 .filter((img) => img !== "None")
                 .map((img) => (
                   <div key={img}>
-                    <img src={img.replace("http", "https")} alt="" />
+                    <img src={img.replace('http', 'https')} alt="" />
                   </div>
                 ))}
             </Slider>
@@ -195,7 +195,6 @@ const HomePage = () => {
                 <Card
                   key={prod.id}
                   cart={prods}
-                  preview={preview}
                   increment={increment}
                   decrement={decrement}
                   addToCart={addToCart}
@@ -221,7 +220,6 @@ const HomePage = () => {
                 <Card
                   key={prod.id}
                   cart={prods}
-                  preview={preview}
                   increment={increment}
                   decrement={decrement}
                   addToCart={addToCart}

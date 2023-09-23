@@ -2,8 +2,9 @@ import { useState } from "react";
 import request from "../../helpers/request";
 import styles from "./Order.module.scss";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { toast } from "react-toastify";
 
-const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
+const OrderTab = ({ orderOpen, clearCart, closeOrder, cart }) => {
   const [comment, setComment] = useState("");
   const checkPrice = (price) => {
     if (price.toString().length === 4) {
@@ -46,7 +47,7 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
         });
     });
     clearCart();
-    openOrdered()
+    toast.success("Buyurtmangiz qabul qilindi. Tez orada siz bilan bog'lanamiz!");
   };
   return (
     <div className={`${styles.order} ${orderOpen ? styles.open : null}`}>
