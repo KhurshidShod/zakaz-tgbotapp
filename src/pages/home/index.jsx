@@ -17,6 +17,21 @@ const HomePage = () => {
   const [prevProd, setPrevProd] = useState(null);
   const [orderOpen, setOrderOpen] = useState(false);
 
+  const sliderRef = useRef();
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    draggable: true,
+    swipeToSlide: true,
+    nextArrow: <GrFormNext color="white" />,
+    prevArrow: <GrFormPrevious color="white" />,
+    customPaging: () => <li>{<PiDotFill />}</li>,
+  };
+
   useEffect(() => {
     setLoading(true);
     request
@@ -62,24 +77,14 @@ const HomePage = () => {
     ];
     setProds(newProds);
   };
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    draggable: true,
-    swipeToSlide: true,
-    nextArrow: <GrFormNext color="white" />,
-    prevArrow: <GrFormPrevious color="white" />,
-    customPaging: () => <li>{<PiDotFill />}</li>,
-  };
   const preview = (id) => {
     setPrevProd(products.find((prod) => prod.id === id));
     document.body.classList.add("fixed");
   };
+  const clearCart = () => {
+    setProds([])
+  }
 
-  const sliderRef = useRef();
   return (
     <div className={styles.homepage}>
       <div
@@ -231,6 +236,7 @@ const HomePage = () => {
       <OrderTab
         orderOpen={orderOpen}
         cart={prods}
+        clearCart={clearCart}
         closeOrder={() => {
           setOrderOpen(false);
           document.body.classList.remove("fixed");
