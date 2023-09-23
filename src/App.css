@@ -14,6 +14,7 @@
 body {
   color: var(--tg-theme-text-color) !important;
   background-color: var(--tg-theme-bg-color) !important;
+  font-family: 'Mulish' !important;
 }
 body.fixed{
   overflow: hidden;
