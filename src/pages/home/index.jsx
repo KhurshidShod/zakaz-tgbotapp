@@ -88,12 +88,12 @@ const HomePage = () => {
   };
   const openOrdered = () => {
     setOrdered(true);
-    document.body.classList.add("fixed")
+    document.body.classList.add("fixed");
     setTimeout(() => {
       setOrdered(false);
-      document.body.classList.remove("fixed")
+      document.body.classList.remove("fixed");
     }, 3500);
-  }
+  };
 
   return (
     <div className={styles.homepage}>
@@ -247,7 +247,7 @@ const HomePage = () => {
         </div>
       )}
       <OrderTab
-      openOrdered={openOrdered}
+        openOrdered={openOrdered}
         orderOpen={orderOpen}
         cart={prods}
         clearCart={clearCart}
