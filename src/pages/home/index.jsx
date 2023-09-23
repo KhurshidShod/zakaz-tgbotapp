@@ -8,6 +8,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import request from "../../helpers/request";
 import OrderTab from "../../components/order";
 import CardLoading from "../../components/cardloading";
+import Ordered from "../../components/ordered";
 
 const HomePage = () => {
   const [cat, setCat] = useState("all");
@@ -16,6 +17,7 @@ const HomePage = () => {
   const [products, setProducts] = useState([]);
   const [prevProd, setPrevProd] = useState(null);
   const [orderOpen, setOrderOpen] = useState(false);
+  const [ordered, setOrdered] = useState(false);
 
   const sliderRef = useRef();
 
@@ -84,9 +86,18 @@ const HomePage = () => {
   const clearCart = () => {
     setProds([]);
   };
+  const openOrdered = () => {
+    setOrdered(true);
+    document.body.classList.add("fixed")
+    setTimeout(() => {
+      setOrdered(false);
+      document.body.classList.remove("fixed")
+    }, 3500);
+  }
 
   return (
     <div className={styles.homepage}>
+      <Ordered open={ordered} />
       <div
         onClick={() => {
           setOrderOpen(true);
@@ -236,6 +247,7 @@ const HomePage = () => {
         </div>
       )}
       <OrderTab
+      openOrdered={openOrdered}
         orderOpen={orderOpen}
         cart={prods}
         clearCart={clearCart}
