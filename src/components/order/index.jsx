@@ -47,7 +47,9 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart }) => {
         });
     });
     clearCart();
-    toast.success("Buyurtmangiz qabul qilindi. Tez orada siz bilan bog'lanamiz!");
+    toast.success(
+      "Buyurtmangiz qabul qilindi. Tez orada siz bilan bog'lanamiz!"
+    );
   };
   return (
     <div className={`${styles.order} ${orderOpen ? styles.open : null}`}>

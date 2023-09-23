@@ -10,11 +10,14 @@ window.Telegram.WebApp;
 
 function App() {
   const tele = window.Telegram.WebApp;
-  console.log(window);
+  // console.log(window.Telegram);
+  console.log(window.Telegram.WebApp.WebAppInitData);
+  console.log(tele.WebAppInitData)
   useEffect(() => {
     tele.ready();
+    tele.expand();
     tele.enableClosingConfirmation();
-  });
+  }, [tele]);
   return (
     <Fragment>
       <ToastContainer
