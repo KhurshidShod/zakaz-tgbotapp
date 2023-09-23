@@ -97,7 +97,7 @@ const HomePage = () => {
 
   return (
     <div className={styles.homepage}>
-      <Ordered open={ordered} />
+      {/* <Ordered open={ordered} /> */}
       <div
         onClick={() => {
           setOrderOpen(true);
