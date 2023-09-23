@@ -42,7 +42,6 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
         .then((res) => console.log(res))
         .catch((err) => console.log(err))
         .finally(() => {
-          closeOrder();
         });
     });
     clearCart();

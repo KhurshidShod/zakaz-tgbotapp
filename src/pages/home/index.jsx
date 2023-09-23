@@ -17,7 +17,7 @@ const HomePage = () => {
   const [products, setProducts] = useState([]);
   const [prevProd, setPrevProd] = useState(null);
   const [orderOpen, setOrderOpen] = useState(false);
-  const [orderedOpen, setOrderedOpen] = useState(false)
+  const [orderedOpen, setOrderedOpen] = useState(false);
 
   const sliderRef = useRef();
 
@@ -87,13 +87,15 @@ const HomePage = () => {
     setProds([]);
   };
   const openOrdered = () => {
-    setOrderedOpen(true)
+    setOrderedOpen(true);
     document.body.classList.add("fixed");
     setTimeout(() => {
-      setOrderedOpen(false)
+      setOrderOpen(false);
+      document.body.classList.remove("fixed");
+      setOrderedOpen(false);
       document.body.classList.remove("fixed");
     }, 3500);
-  }
+  };
 
   return (
     <div className={styles.homepage}>
