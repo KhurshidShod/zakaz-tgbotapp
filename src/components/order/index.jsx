@@ -44,12 +44,10 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart }) => {
         .catch((err) => console.log(err))
         .finally(() => {
           closeOrder();
-          toast.success(
-            "Buyurtma qabul qilindi. Tez orada siz bilan bog'lanamiz"
-          );
-          clearCart()
         });
     });
+    clearCart();
+    toast.success("Buyurtmangiz qabul qilindi. Tez orada siz bilan bog'lanamiz!");
   };
   return (
     <div className={`${styles.order} ${orderOpen ? styles.open : null}`}>
