@@ -27,7 +27,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <p>User: {JSON.stringify(window.Telegram.WebApp.initData).includes('%22%3A')}</p>
+      <p>User: {JSON.stringify(JSON.stringify(window.Telegram.WebApp.initData).includes('%22%3A'))}</p>
       <HomePage />
     </Fragment>
   );
