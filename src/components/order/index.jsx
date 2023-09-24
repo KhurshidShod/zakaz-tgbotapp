@@ -39,7 +39,7 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
             product_name: prod.name,
             product_price: prod.price,
             count_of_product: prod.quantity,
-            phone_number: tel.includes("+") ? tel : `+${tel}`,
+            phone_number: tel.includes("+") ? tel.slice(4) : tel.slice(3),
             ordered_date: new Date().toISOString(),
             comment: comment,
           })
