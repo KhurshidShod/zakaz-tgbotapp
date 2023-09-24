@@ -7,11 +7,11 @@ import "react-toastify/dist/ReactToastify.min.css";
 
 function App() {
   const tele = window.Telegram.WebApp;
-  const user = window.Telegram.WebApp.initData.user.id;
   useEffect(() => {
     tele.ready();
     tele.expand();
     tele.enableClosingConfirmation();
+    const user = window.Telegram.WebApp.initData.user.id;
   });
   return (
     <Fragment>
