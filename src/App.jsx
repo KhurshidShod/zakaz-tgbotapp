@@ -9,6 +9,7 @@ function App() {
   const tele = window.Telegram.WebApp;
   useEffect(() => {
     tele.ready();
+    tele.expand();
     tele.enableClosingConfirmation();
   });
   return (
