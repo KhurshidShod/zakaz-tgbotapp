@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
   const localTel = localStorage.getItem("tel");
   const [comment, setComment] = useState("");
-  const [tel, setTel] = useState(JSON.parse(localTel || JSON.stringify(+9989)));
+  const [tel, setTel] = useState(JSON.parse(localTel || JSON.stringify("")));
   const checkPrice = (price) => {
     if (price.toString().length === 4) {
       return `${price.toString().slice(0, 1)},${price.toString().slice(1)}`;
