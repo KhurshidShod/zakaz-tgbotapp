@@ -30,29 +30,29 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
     }
   };
   const postOrderData = () => {
-    if (tel.length === 12) {
-      cart.map((prod) => {
-        request
-          .post("addviewordered/", {
-            user_id: "",
-            product_id: prod.id,
-            product_name: prod.name,
-            product_price: prod.price,
-            count_of_product: prod.quantity,
-            phone_number: tel,
-            ordered_date: new Date().toISOString(),
-            comment: comment,
-          })
-          .then((res) => console.log(res))
-          .catch((err) => console.log(err))
-          .finally(() => {});
-      });
-      clearCart();
-      openOrdered();
-      localStorage.setItem("tel", tel);
-    } else {
-      toast.error("Telefon raqam noto'g'ri");
-    }
+      if (tel.length >= 12) {
+        cart.map((prod) => {
+          request
+            .post("addviewordered/", {
+              user_id: "",
+              product_id: prod.id,
+              product_name: prod.name,
+              product_price: prod.price,
+              count_of_product: prod.quantity,
+              phone_number: tel.includes("+") ? tel : `+${tel}`,
+              ordered_date: new Date().toISOString(),
+              comment: comment,
+            })
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err))
+            .finally(() => {});
+        });
+        clearCart();
+        openOrdered();
+        localStorage.setItem("tel", tel.includes("+") ? tel.substring(1) : tel);
+      } else {
+        toast.error("Telefon raqam noto'g'ri");
+      }
   };
   return (
     <div className={`${styles.order} ${orderOpen ? styles.open : null}`}>
