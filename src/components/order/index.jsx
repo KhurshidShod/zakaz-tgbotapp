@@ -2,9 +2,12 @@ import { useState } from "react";
 import request from "../../helpers/request";
 import styles from "./Order.module.scss";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
+  const localTel = localStorage.getItem("tel");
   const [comment, setComment] = useState("");
+  const [tel, setTel] = useState(JSON.parse(localTel || JSON.stringify(+9989)));
   const checkPrice = (price) => {
     if (price.toString().length === 4) {
       return `${price.toString().slice(0, 1)},${price.toString().slice(1)}`;
@@ -27,25 +30,29 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
     }
   };
   const postOrderData = () => {
-    cart.map((prod) => {
-      request
-        .post("addviewordered/", {
-          user_id: 4,
-          product_id: prod.id,
-          product_name: prod.name,
-          product_price: prod.price,
-          count_of_product: prod.quantity,
-          phone_number: 998935131004,
-          ordered_date: new Date().toISOString(),
-          // order_comment: comment,
-        })
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err))
-        .finally(() => {
-        });
-    });
-    clearCart();
-    openOrdered()
+    if (tel.length === 12) {
+      cart.map((prod) => {
+        request
+          .post("addviewordered/", {
+            user_id: "",
+            product_id: prod.id,
+            product_name: prod.name,
+            product_price: prod.price,
+            count_of_product: prod.quantity,
+            phone_number: tel,
+            ordered_date: new Date().toISOString(),
+            comment: comment,
+          })
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err))
+          .finally(() => {});
+      });
+      clearCart();
+      openOrdered();
+      localStorage.setItem("tel", tel);
+    } else {
+      toast.error("Telefon raqam noto'g'ri");
+    }
   };
   return (
     <div className={`${styles.order} ${orderOpen ? styles.open : null}`}>
@@ -84,6 +91,17 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
             type="text"
             onChange={(e) => setComment(e.target.value)}
             placeholder="Izoh..."
+            name=""
+            id=""
+          />
+        </div>
+        <div className={styles.order__wrapper_tel}>
+          <p>Aloqa uchun telefon raqam:</p>
+          <input
+            value={tel}
+            required
+            type="tel"
+            onChange={(e) => setTel(e.target.value)}
             name=""
             id=""
           />

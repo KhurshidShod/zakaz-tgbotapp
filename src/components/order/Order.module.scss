@@ -21,7 +21,10 @@
     border-top-right-radius: 25px;
     background-color: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: grey;
     overflow: auto;
     &::-webkit-scrollbar {
       display: none;
@@ -133,12 +136,30 @@
     &_comment {
       width: 100%;
       margin-top: 1rem;
+      input {
+        width: 100%;
+        height: 35px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding-left: 0.5rem;
+        color: var(--tg-theme-text-color);
+        border-bottom: 1px solid var(--tg-theme-text-color);
+        &::placeholder {
+          color: var(--tg-theme-text-color);
+        }
+      }
+    }
+    &_tel {
+      width: 100%;
+      margin-top: 1rem;
       margin-bottom: 3.5rem;
       input {
         width: 100%;
         height: 35px;
         background-color: transparent;
         border: none;
+        margin-top: 5px;
         outline: none;
         padding-left: 0.5rem;
         color: var(--tg-theme-text-color);
