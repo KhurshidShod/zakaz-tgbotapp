@@ -27,7 +27,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <p>User: {JSON.stringify(JSON.stringify(window.Telegram.WebApp.initData))}</p>
+      <p>User: {JSON.stringify(JSON.stringify(window.Telegram.WebApp.initData).indexOf("user=%7B%22id%22%3A"))}</p>
       <HomePage />
     </Fragment>
   );
