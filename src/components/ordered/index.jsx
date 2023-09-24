@@ -22,7 +22,7 @@ const Ordered = ({ open }) => {
             d="M14.1 27.2l7.1 7.2 16.7-16.8"
           />
         </svg>
-        <p>Buyurtmangi qabul qilindi. Siz bilan tez orada boglanamiz! 😊</p>
+        <p>Buyurtmangiz qabul qilindi. Buyurtmalarim bo'limida to'lovni amalga oshiring 😊</p>
       </div>
   );
 };

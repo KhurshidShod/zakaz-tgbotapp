@@ -94,7 +94,7 @@ const HomePage = () => {
       document.body.classList.remove("fixed");
       setOrderedOpen(false);
       document.body.classList.remove("fixed");
-    }, 3500);
+    }, 4000);
   };
 
   return (
