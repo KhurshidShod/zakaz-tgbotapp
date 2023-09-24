@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.min.css";
 
 function App() {
   const tele = window.Telegram.WebApp;
-  console.log(window.Telegram.WebApp.initData.user.id);
   useEffect(() => {
     tele.ready();
     tele.expand();
