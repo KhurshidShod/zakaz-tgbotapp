@@ -11,7 +11,7 @@ function App() {
     tele.ready();
     tele.expand();
     tele.enableClosingConfirmation();
-    const user = window.Telegram.WebApp.initData.user.id;
+    // const user = window.Telegram.WebApp.initData.user.id;
   });
   return (
     <Fragment>
@@ -27,7 +27,6 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <p>hj{user}</p>
       <HomePage />
     </Fragment>
   );
