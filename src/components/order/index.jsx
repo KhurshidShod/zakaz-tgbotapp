@@ -7,7 +7,9 @@ import { toast } from "react-toastify";
 const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
   const localTel = localStorage.getItem("tel");
   const [comment, setComment] = useState("");
-  const [tel, setTel] = useState(JSON.parse(localTel || JSON.stringify("")));
+  const [tel, setTel] = useState(
+    `+${JSON.parse(localTel || JSON.stringify("998"))}`
+  );
   const checkPrice = (price) => {
     if (price.toString().length === 4) {
       return `${price.toString().slice(0, 1)},${price.toString().slice(1)}`;
@@ -24,35 +26,35 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
         .toString()
         .slice(2, 5)},${price.toString().slice(5)}`;
     } else if (price.toString().length === 9) {
-      return `${price.toString().slice(0, 3)},${price
-        .toString()
-        .slice(3, 6)},${price.toString().slice(6)}`;
+      return `${price.toString().slice(0, 3)},${price.toString().slice(3, 6)},${price.toString().slice(6)}`;
     }
   };
   const postOrderData = () => {
-      if (tel.length >= 12) {
-        cart.map((prod) => {
-          request
-            .post("addviewordered/", {
-              user_id: "",
-              product_id: prod.id,
-              product_name: prod.name,
-              product_price: prod.price,
-              count_of_product: prod.quantity,
-              phone_number: tel.includes("+") ? tel : `+${tel}`,
-              ordered_date: new Date().toISOString(),
-              comment: comment,
-            })
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err))
-            .finally(() => {});
-        });
-        clearCart();
-        openOrdered();
-        localStorage.setItem("tel", tel.includes("+") ? tel.substring(1) : tel);
-      } else {
-        toast.error("Telefon raqam noto'g'ri");
-      }
+    if (tel.length >= 12) {
+      cart.map((prod) => {
+        request
+          .post("addviewordered/", {
+            user_id: 0,
+            product_id: prod.id,
+            product_name: prod.name,
+            product_price: prod.price,
+            count_of_product: prod.quantity,
+            phone_number: tel.includes("+") ? tel : `+${tel}`,
+            ordered_date: new Date().toISOString(),
+            comment: comment,
+          })
+          .then((res) => {
+            clearCart();
+            openOrdered();
+          })
+          .catch((err) => {
+            toast.error("Xatolik yuz berdi. Birozdan so'ng urunib koring");
+          })
+      });
+      localStorage.setItem("tel", tel.includes("+") ? tel.substring(1) : tel);
+    } else {
+      toast.error("Telefon raqam noto'g'ri");
+    }
   };
   return (
     <div className={`${styles.order} ${orderOpen ? styles.open : null}`}>
