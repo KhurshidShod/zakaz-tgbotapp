@@ -26,7 +26,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <p>hj{window.Telegram.WebApp.WebAppInitData}</p>
+      <p>hj{window.Telegram.WebApp.WebApp.initData}</p>
       <HomePage />
     </Fragment>
   );
