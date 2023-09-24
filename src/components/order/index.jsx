@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import request from "../../helpers/request";
 import styles from "./Order.module.scss";
 import { AiOutlineCloseCircle } from "react-icons/ai";
@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
   const localTel = localStorage.getItem("tel");
   const [comment, setComment] = useState("");
+  const [users, setUsers] = useState([]);
   const [tel, setTel] = useState(
     `+${JSON.parse(localTel || JSON.stringify("998"))}`
   );
@@ -26,11 +27,14 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
         .toString()
         .slice(2, 5)},${price.toString().slice(5)}`;
     } else if (price.toString().length === 9) {
-      return `${price.toString().slice(0, 3)},${price.toString().slice(3, 6)},${price.toString().slice(6)}`;
+      return `${price.toString().slice(0, 3)},${price
+        .toString()
+        .slice(3, 6)},${price.toString().slice(6)}`;
     }
   };
+  const phoneCheck = users.find((user) => user.phone_number == (tel.includes("+") ? tel.slice(4) : tel.slice(3)));
   const postOrderData = () => {
-    if (tel.length >= 12) {
+    if (tel.length >= 12 && phoneCheck) {
       cart.map((prod) => {
         request
           .post("addviewordered/", {
@@ -43,19 +47,22 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
             ordered_date: new Date().toISOString(),
             comment: comment,
           })
-          .then((res) => {
+          .then(() => {
             clearCart();
             openOrdered();
           })
-          .catch((err) => {
+          .catch(() => {
             toast.error("Xatolik yuz berdi. Birozdan so'ng urunib koring");
-          })
+          });
       });
       localStorage.setItem("tel", tel.includes("+") ? tel.substring(1) : tel);
     } else {
-      toast.error("Telefon raqam noto'g'ri");
+      toast.error("Botda ro'yxatdan o'tgan raqamingizni kiriting.");
     }
   };
+  useEffect(() => {
+    request.get("addviewperson/").then((res) => setUsers(res.data));
+  }, []);
   return (
     <div className={`${styles.order} ${orderOpen ? styles.open : null}`}>
       <div className={styles.order__wrapper}>
@@ -103,7 +110,10 @@ const OrderTab = ({ orderOpen, clearCart, closeOrder, cart, openOrdered }) => {
             value={tel}
             required
             type="tel"
-            onChange={(e) => setTel(e.target.value)}
+            onChange={(e) => {
+              setTel(e.target.value);
+              console.log(phoneCheck);
+            }}
             name=""
             id=""
           />
