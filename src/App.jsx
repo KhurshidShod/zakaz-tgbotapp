@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 
 function App() {
   const tele = window.Telegram.WebApp;
+  const user = window.Telegram.WebApp.initData.user.id;
   useEffect(() => {
     tele.ready();
     tele.expand();
@@ -26,7 +27,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <p>hj{window.Telegram.WebApp.user}</p>
+      <p>hj{user}</p>
       <HomePage />
     </Fragment>
   );
