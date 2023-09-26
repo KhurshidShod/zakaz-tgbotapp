@@ -11,10 +11,13 @@
     flex-direction: column;
     z-index: 999;
     >p{
-        max-width: 300px;
+        max-width: 350px;
+        letter-spacing: 1.5px;
+        line-height: 30px;
         text-align: center;
         font-family: 'Mulish';
         font-weight: 600;
+        font-size: 20px;
     }
 }
 .checkmark__circle {

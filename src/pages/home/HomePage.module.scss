@@ -79,10 +79,10 @@
     }
   }
   &__cats {
-    width: 300px;
+    width: 250px;
     display: flex;
     margin: 0 auto;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: var(--tg-theme-text-color);
     border-radius: 5px;
     padding: 5px;
@@ -97,13 +97,17 @@
       background-color: orange;
       position: absolute;
       pointer-events: none;
-      left: 5px;
+      left: 0px;
       transition: 0.3s ease-in-out;
     }
     button {
       width: 100px;
       height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border-radius: 10px;
+      gap: 5px;
       background-color: transparent;
       z-index: 2;
       color: var(--tg-theme-bg-color);
@@ -112,13 +116,35 @@
   &__cards {
     display: flex;
     width: 100%;
-    justify-content: space-between;
-    align-items: stretch;
     flex-wrap: wrap;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    @media (max-width: 331px) {
-      flex-direction: column;
+    flex-direction: column;
+    &_wrapper{
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: stretch;
+      flex-wrap: wrap;
+      @media (max-width: 331px) {
+        flex-direction: column;
+      }
+    }
+    select{
+      width: 100px;
+      height: 35px;
+      padding-left: 0.5rem;
+      border-radius: 8px;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      background-color: orange;
+      font-weight: 400;
+      margin-top: 1rem;
+      margin-bottom: .5rem;
+      cursor: pointer;
+      font-family: 'Mulish';
     }
   }
 }

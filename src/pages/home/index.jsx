@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Card from "../../components/card";
 import styles from "./HomePage.module.scss";
 import Slider from "react-slick";
@@ -9,15 +9,20 @@ import request from "../../helpers/request";
 import OrderTab from "../../components/order";
 import CardLoading from "../../components/cardloading";
 import Ordered from "../../components/ordered";
+import { LuBaby } from "react-icons/lu";
+import { FaMale } from "react-icons/fa";
+import { FaFemale } from "react-icons/fa";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const HomePage = () => {
-  const [cat, setCat] = useState("all");
+  const [cat, setCat] = useState("young");
   const [prods, setProds] = useState([]);
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const [prevProd, setPrevProd] = useState(null);
   const [orderOpen, setOrderOpen] = useState(false);
   const [orderedOpen, setOrderedOpen] = useState(false);
+  const [genderFilter, setGenderFilter] = useState("male");
 
   const sliderRef = useRef();
 
@@ -94,7 +99,7 @@ const HomePage = () => {
       document.body.classList.remove("fixed");
       setOrderedOpen(false);
       document.body.classList.remove("fixed");
-    }, 4000);
+    }, 5000);
   };
 
   return (
@@ -146,21 +151,15 @@ const HomePage = () => {
         <span
           ref={sliderRef}
           style={{
-            left: cat === "all" ? "5px" : cat === "young" ? "100px" : "195px",
+            left: cat === "young" ? "15px" : "135px",
           }}
         ></span>
-        <button
-          onClick={() => {
-            setCat("all");
-          }}
-        >
-          Barchasi
-        </button>
         <button
           onClick={() => {
             setCat("young");
           }}
         >
+          <LuBaby size={18} />
           Bolalar
         </button>
         <button
@@ -168,53 +167,36 @@ const HomePage = () => {
             setCat("adult");
           }}
         >
+          <BsFillPersonFill size={18} />
           Kattalar
         </button>
       </div>
-      {cat === "all" ? (
+      {cat === "young" ? (
         <div className={styles.homepage__cards}>
           {loading ? (
-            Array(4)
-              .fill(0)
-              .map(() => <CardLoading />)
-          ) : products.length ? (
-            products.map((prod) => (
-              <Card
-                increment={increment}
-                decrement={decrement}
-                key={prod.id}
-                cart={prods}
-                preview={preview}
-                addToCart={addToCart}
-                {...prod}
-              />
-            ))
-          ) : (
-            <div>
-              <p>Afsuski, mahsulotlar mavjud emas</p>
+            <div className={styles.homepage__cards_wrapper}>
+              {Array(4)
+                .fill(0)
+                .map(() => (
+                  <CardLoading />
+                ))}
             </div>
-          )}
-        </div>
-      ) : cat === "young" ? (
-        <div className={styles.homepage__cards}>
-          {loading ? (
-            Array(4)
-              .fill(0)
-              .map(() => <CardLoading />)
           ) : products.filter((prod) => prod.type === "young kids").length ? (
-            products
-              .filter((prod) => prod.type === "young kids")
-              .map((prod) => (
-                <Card
-                  key={prod.id}
-                  cart={prods}
-                  preview={preview}
-                  increment={increment}
-                  decrement={decrement}
-                  addToCart={addToCart}
-                  {...prod}
-                />
-              ))
+            <div className={styles.homepage__cards_wrapper}>
+              {products
+                .filter((prod) => prod.type === "young kids")
+                .map((prod) => (
+                  <Card
+                    key={prod.id}
+                    cart={prods}
+                    preview={preview}
+                    increment={increment}
+                    decrement={decrement}
+                    addToCart={addToCart}
+                    {...prod}
+                  />
+                ))}
+            </div>
           ) : (
             <div>
               <p>Afsuski, bu kategoriyada mahsulotlar mavjud emas</p>
@@ -223,24 +205,42 @@ const HomePage = () => {
         </div>
       ) : (
         <div className={styles.homepage__cards}>
+          <select
+            name=""
+            id=""
+            onChange={(e) => setGenderFilter(e.target.value)}
+          >
+            <option value="male">
+              <FaMale /> Erkaklar
+            </option>
+            <option value="female">
+              <FaFemale /> Ayollar
+            </option>
+          </select>
           {loading ? (
-            Array(4)
-              .fill(0)
-              .map(() => <CardLoading />)
-          ) : products.filter((prod) => prod.type === "adults").length ? (
-            products
-              .filter((prod) => prod.type === "adults")
-              .map((prod) => (
-                <Card
-                  key={prod.id}
-                  cart={prods}
-                  preview={preview}
-                  increment={increment}
-                  decrement={decrement}
-                  addToCart={addToCart}
-                  {...prod}
-                />
-              ))
+            <div className={styles.homepage__cards_wrapper}>
+              {Array(4)
+                .fill(0)
+                .map(() => (
+                  <CardLoading />
+                ))}
+            </div>
+          ) : products.filter((prod) => prod.type === genderFilter).length ? (
+            <div className={styles.homepage__cards_wrapper}>
+              {products
+                .filter((prod) => prod.type === genderFilter)
+                .map((prod) => (
+                  <Card
+                    key={prod.id}
+                    cart={prods}
+                    preview={preview}
+                    increment={increment}
+                    decrement={decrement}
+                    addToCart={addToCart}
+                    {...prod}
+                  />
+                ))}
+            </div>
           ) : (
             <div>
               <p>Afsuski, bu kategoriyada mahsulotlar mavjud emas</p>
