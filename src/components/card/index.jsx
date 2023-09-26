@@ -46,11 +46,7 @@ const Card = ({
             .filter((prod) => prod !== "None")
             .map((img) => (
               <div onClick={() => preview(id)} key={img}>
-                <TransformWrapper>
-                  <TransformComponent>
                     <img src={img.replace("http", "https")} alt="" />
-                  </TransformComponent>
-                </TransformWrapper>
               </div>
             ))}
         </Slider>
