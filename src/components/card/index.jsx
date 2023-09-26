@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { GrFormNext } from "react-icons/gr";
 import { GrFormPrevious } from "react-icons/gr";
 import { PiDotFill } from "react-icons/pi";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 const Card = ({
   name,
@@ -18,7 +18,7 @@ const Card = ({
   addToCart,
   increment,
   decrement,
-  preview
+  preview,
 }) => {
   const settings = {
     dots: true,
@@ -41,11 +41,18 @@ const Card = ({
             : quantity}
         </span>
         <Slider {...settings}>
-          {photos.split('|').filter(prod => prod !== 'None').map((img) => (
-            <div onClick={() => preview(id)} key={img}>
-              <img src={img.replace('http', 'https')} alt="" />
-            </div>
-          ))}
+          {photos
+            .split("|")
+            .filter((prod) => prod !== "None")
+            .map((img) => (
+              <div onClick={() => preview(id)} key={img}>
+                <TransformWrapper>
+                  <TransformComponent>
+                    <img src={img.replace("http", "https")} alt="" />
+                  </TransformComponent>
+                </TransformWrapper>
+              </div>
+            ))}
         </Slider>
       </div>
       <div onClick={() => preview(id)} className={styles.card__text}>
@@ -92,7 +99,7 @@ Card.propTypes = {
   addToCart: PropTypes.func,
   increment: PropTypes.func,
   decrement: PropTypes.func,
-  preview: PropTypes.func
-}
+  preview: PropTypes.func,
+};
 
 export default Card;
