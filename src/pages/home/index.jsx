@@ -13,7 +13,7 @@ import { LuBaby } from "react-icons/lu";
 import { FaMale } from "react-icons/fa";
 import { FaFemale } from "react-icons/fa";
 import { BsFillPersonFill } from "react-icons/bs";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+// import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 const HomePage = () => {
   const [cat, setCat] = useState("young");
@@ -138,11 +138,11 @@ const HomePage = () => {
                 .filter((img) => img !== "None")
                 .map((img) => (
                   <div key={img}>
-                    <TransformWrapper>
-                      <TransformComponent>
+                    {/* <TransformWrapper>
+                      <TransformComponent> */}
                         <img src={img.replace("http", "https")} alt="" />
-                      </TransformComponent>
-                    </TransformWrapper>
+                      {/* </TransformComponent>
+                    </TransformWrapper> */}
                   </div>
                 ))}
             </Slider>
