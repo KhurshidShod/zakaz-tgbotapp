@@ -11,6 +11,7 @@ const Card = ({
   photos,
   price,
   quantity,
+  cheap_price,
   count,
   type,
   id,
@@ -59,7 +60,7 @@ const Card = ({
       </div>
       <div onClick={() => preview(id)} className={styles.card__infos}>
         <p>
-          Narxi: <b>{price}</b>
+          <b>Narxi:</b> {cheap_price === 0 ? <b>{price}</b> : <p><del>{price}</del> <b>{cheap_price}</b></p>}
         </p>
         <p>
           Mavjud: <b>{count}</b>

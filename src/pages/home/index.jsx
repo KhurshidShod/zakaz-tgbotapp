@@ -210,7 +210,30 @@ const HomePage = () => {
         </div>
       ) : (
         <div className={styles.homepage__cards}>
-          <select
+          <div className={styles.homepage__cards_gender}>
+            <div>
+              <input
+                type="radio"
+                defaultChecked
+                onChange={(e) => setGenderFilter(e.target.id)}
+                name="gender"
+                id="male"
+              />
+              <span></span>
+              <label htmlFor="male">Erkaklar</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                onChange={(e) => setGenderFilter(e.target.id)}
+                name="gender"
+                id="female"
+              />
+              <span></span>
+              <label htmlFor="female">Ayollar</label>
+            </div>
+          </div>
+          {/* <select
             name=""
             id=""
             onChange={(e) => setGenderFilter(e.target.value)}
@@ -221,7 +244,7 @@ const HomePage = () => {
             <option value="female">
               <FaFemale /> Ayollar
             </option>
-          </select>
+          </select> */}
           {loading ? (
             <div className={styles.homepage__cards_wrapper}>
               {Array(4)
